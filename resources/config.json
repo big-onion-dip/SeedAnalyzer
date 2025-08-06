@@ -1,0 +1,6 @@
+{
+    "min_seed_area": 1000,
+    "max_seed_area": 5000,
+    "filename_prefix": "photo",
+    "save_binary_image": false
+}
