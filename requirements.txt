@@ -1,0 +1,8 @@
+numpy
+pandas
+opencv-python
+Pillow
+scipy
+scikit-image
+pyserial
+ttkbootstrap
