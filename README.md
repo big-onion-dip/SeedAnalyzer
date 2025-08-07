@@ -27,23 +27,29 @@
 ```
 SeedAnalyzer/
 │
-├── src/
-│   ├── main.py              # 主程序入口
-│   ├── gui.py               # 图形用户界面 (Tkinter)
-│   ├── serial_manager.py    # 串口连接与读取模块
-│   ├── camera_controller.py # 摄像头控制模块（调用 DLL）
-│   ├── image_analyzer.py    # 图像分析与种子特征提取模块
-│   └── utils.py             # 工具函数模块
+├── SeedAnalyzer.exe       # 可执行软件包，需密钥
+├── main.py                # 主程序入口
+├── gui.py                 # 图形用户界面 (Tkinter)
+├── serial_manager.py      # 串口连接与读取模块（读取电子秤数据）
+├── camera_controller.py   # 摄像头控制模块（调用 DLL 拍照）
+├── image_analyzer.py      # 图像分析与种子特征提取模块（OpenCV + skimage）
+├── utils.py               # 工具函数
 │
-├── output_seeds/           # 输出图像与结果表目录
-├── CamLib.dll              # 高拍仪摄像头 SDK（Windows 下必需）
-├── requirements.txt        # 依赖包列表
-└── README.md               # 项目说明文档（本文件）
+├── output_seeds/          # 输出图像、特征表、统计结果等
+├── resources/             # 资源文件夹
+│   └── *.dll              # 摄像头 DLL 文件（如 CamLib.dll）
+├── requirements.txt       # Python 依赖包列表
+└── README.md              # 本说明文件
+
 ```
 
+## ▶️ 快速开始-exe文件执行
+1. 下载并安装 SeedAnalyzer.exe
+2. 运行 SeedAnalyzer.exe
+3. 完成，密钥请联系作者进行提供
 ---
 
-## ▶️ 快速开始
+## ▶️ 快速开始-python代码运行
 
 ### 🖥️ 环境要求
 
@@ -63,38 +69,6 @@ pip install -r requirements.txt
 python src/main.py
 ```
 
----
-
-## 🧰 打包为可执行程序（Windows）
-
-使用 [`pyinstaller`](https://pyinstaller.org/) 将程序打包为 `.exe`：
-
-### 1. 安装 PyInstaller
-
-```bash
-pip install pyinstaller
-```
-
-### 2. 打包命令
-
-在 `src/` 目录下运行：
-
-```bash
-pyinstaller --noconfirm --onefile --windowed ^
-    --add-data "CamLib.dll;." ^
-    --add-data "../output_seeds;output_seeds" ^
-    main.py
-```
-
-**说明**：
-
-* `--onefile` 打包为单一可执行文件
-* `--windowed` 隐藏控制台窗口
-* `--add-data` 添加 DLL 和输出目录资源
-
-打包后的可执行文件位于 `dist/main.exe`
-
----
 
 ## 📊 依赖列表（requirements.txt）
 

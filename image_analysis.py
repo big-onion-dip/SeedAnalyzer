@@ -61,7 +61,7 @@ def analyze_image(image_path, out_dir, base_name, min_area, max_area, max_length
             "Perimeter_px": round(r.perimeter, 2)
         })
 
-
+    
     pd.DataFrame(traits).to_csv(os.path.join(out_dir, f"{base_name}_traits.csv"), index=False)
     cv2.imwrite(os.path.join(out_dir, f"{base_name}_vis.jpg"), vis)
     if save_binary:

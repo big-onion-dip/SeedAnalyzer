@@ -3,7 +3,7 @@ import time
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 import pandas as pd
-
+import sys
 from serial_communication import SerialManager
 from camera import CameraManager
 from image_analysis import analyze_image
@@ -16,9 +16,7 @@ class SeedAnalyzerApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("SeedAnalyzer - V1.3.0 by LiuLab-CWC")
-        self.geometry("1200x700")
-        self.iconbitmap(os.path.join(os.path.dirname(__file__), "resources", "icon.ico"))
-
+        self.geometry("1100x700")
         self.serial = SerialManager(self)
         self.camera = CameraManager(self)
 
